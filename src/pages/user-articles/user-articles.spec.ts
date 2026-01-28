@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+import { of } from 'rxjs';
 
 import { UserArticles } from './user-articles';
 
@@ -8,7 +11,13 @@ describe('UserArticles', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserArticles],
+      imports: [UserArticles, ToastrModule.forRoot()],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { params: of({ username: 'test' }) },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(UserArticles);

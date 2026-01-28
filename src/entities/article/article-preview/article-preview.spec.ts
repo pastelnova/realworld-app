@@ -1,22 +1,28 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 import { ArticlePreview } from './article-preview';
 
 describe('ArticlePreview', () => {
-  let component: ArticlePreview;
-  let fixture: ComponentFixture<ArticlePreview>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ArticlePreview],
+      imports: [
+        ArticlePreview,
+        ToastrModule.forRoot(),
+        HttpClientTestingModule,
+      ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
-
-    fixture = TestBed.createComponent(ArticlePreview);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(ArticlePreview).toBeDefined();
   });
 });

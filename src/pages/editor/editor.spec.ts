@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ToastrModule } from 'ngx-toastr';
 
 import { Editor } from './editor';
 
@@ -8,7 +9,7 @@ describe('Editor', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Editor],
+      imports: [Editor, ToastrModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Editor);

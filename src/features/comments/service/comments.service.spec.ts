@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { ToastrModule } from 'ngx-toastr';
 
 import { CommentsService } from './comments.service';
 
@@ -6,7 +7,9 @@ describe('CommentsService', () => {
   let commentsService: CommentsService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [ToastrModule.forRoot()],
+    });
     commentsService = TestBed.inject(CommentsService);
   });
 

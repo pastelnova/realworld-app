@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ToastrModule } from 'ngx-toastr';
 
 import { Favorites } from './favorites';
 
@@ -8,7 +9,7 @@ describe('Favorites', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Favorites],
+      imports: [Favorites, ToastrModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Favorites);
