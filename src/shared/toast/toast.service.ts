@@ -5,13 +5,13 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root',
 })
 export class ToastService {
-  private toastr = inject(ToastrService);
+  private toastr = inject(ToastrService, { optional: true });
 
   showSuccess(msg: string) {
-    this.toastr.success(msg);
+    this.toastr?.success(msg);
   }
 
   showError(msg: string) {
-    this.toastr.error(msg);
+    this.toastr?.error(msg);
   }
 }
